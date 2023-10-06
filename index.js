@@ -18,12 +18,13 @@ app.get('/Model', (req, res) => {
     res.render('Model3D', { title: 'Model3D' });
   });
 
-app.post('/submit-form', (req, res) => {
+app.post('/Model2', (req, res) => {
   // Log form data to the console
-  console.log(req.body["name"]);
-
+  //console.log(req.body["name"]);
+  var dataFromForm = req.body;
   // You can redirect, render a view, send a response, etc.
-  res.send('Form received!');
+  res.render('Model3D', { title: 'Model3D', data: dataFromForm });
+
 });
 
 app.listen(port, () => {

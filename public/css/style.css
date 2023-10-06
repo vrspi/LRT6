@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Electrolize';
+    src: url('/fonts/ELECTROLIZE-REGULAR.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Electrolize', sans-serif;
+}
