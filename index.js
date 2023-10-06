@@ -13,14 +13,17 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
   res.render('index', { title: 'LRT6' });
+  
 });
 app.get('/Model', (req, res) => {
     res.render('Model3D', { title: 'Model3D' });
   });
-
-app.post('/Model2', (req, res) => {
+app.get('/Team',(req, res) => {
+    res.render('team', { title: 'LRT6' });
+});
+app.post('/Model', (req, res) => {
   // Log form data to the console
-  //console.log(req.body["name"]);
+  console.log(req.body["name"]);
   var dataFromForm = req.body;
   // You can redirect, render a view, send a response, etc.
   res.render('Model3D', { title: 'Model3D', data: dataFromForm });
