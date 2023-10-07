@@ -2,11 +2,41 @@ body {
     height: 100vh;
     width: 100vw;
     overflow: hidden;
-    background-image: url("/images/moon-website-export_0016_bg.png");
+    /*background-image: url("/images/moon-website-export_0016_bg.png");*/
+    background-color: black;
     background-repeat: no-repeat;
 }
 html {
     scroll-behavior: smooth;
+}
+
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+.star {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background: #fff;
+    opacity: 0;
+    animation: twinkle 10s infinite;
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 .hero{
@@ -65,7 +95,7 @@ html {
 .control-btn:hover{
     border-radius: 20px 0 20px 0;
     scale: 1.05;
-    border-color: #777777;
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.7);
 }
 
 .story{
@@ -96,7 +126,7 @@ html {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 50%;
+    width: 60%;
 }
 #container-title-story > p{
     font-weight: 500;
@@ -141,4 +171,27 @@ html {
     height: 700px;
     right: 0px;
     top: -437px;
+}
+
+.wiggle {
+    transition: transform 0.3s ease-in-out;
+    animation: wiggle-animation 10s ease-in-out infinite;
+}
+
+@keyframes wiggle-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(5deg);
+    }
+    50% {
+        transform: rotate(-5deg);
+    }
+    75% {
+        transform: rotate(5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
 }

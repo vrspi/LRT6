@@ -7,6 +7,25 @@
     <link rel="shortcut icon" href="/images/logo-dark.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="/css/hero.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <script>
+        function createStars() {
+            const starCount = 200;
+            const stars = document.querySelector(".stars");
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement("div");
+                star.classList.add("star");
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDuration = `${1 + Math.random() * 10}s`;
+                stars.appendChild(star);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            createStars();
+        });
+    </script>
 </head>
 <body>
     <section class="hero">
@@ -21,6 +40,7 @@
             <a href="" class="control-btn">Skip</a>
             <a href="#s1" class="control-btn">Proceed</a>
         </div>
+        <div class="stars"></div>
     </section>
 
     <section class="story" id="s1">
@@ -42,7 +62,7 @@
                 </p>
         </div>
         <div id="d-right">
-            <img src="/images/moon-website-export_0006_astronaut.png" alt="astronaut">
+            <img src="/images/moon-website-export_0006_astronaut.png" class="wiggle" alt="astronaut">
         </div>
     </section>
 
@@ -89,38 +109,6 @@ const observer = new IntersectionObserver((entries, observer) => {
 
 // Start observing the paragraph
 observer.observe(paragraph);
-
     </script>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <!-- Example Form -->
-    <!-- <h2>Example Form</h2>
-    <form action="/Model" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
-        
-        <input type="submit" value="Submit">
-    </form> -->
 </body>
 </html>
