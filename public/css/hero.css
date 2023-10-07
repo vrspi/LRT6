@@ -128,7 +128,6 @@ html {
 .story{
     width:100%;
     height:100%;
-    background-color: #fff;
     display: flex;
     flex-direction: row;
     position: relative;
@@ -136,9 +135,20 @@ html {
 
 #s1{
     background-image: url("/images/moon-website-export_0015_moon-(merged).png");
+    background-color: #fff;
     background-repeat: no-repeat;
     background-size: contain;
     background-position-x: right;
+}
+
+#s2{
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px; 
 }
 
 #puce{
@@ -146,6 +156,30 @@ html {
     align-items: center;
     flex-direction: column;
     padding: 40px 0 0 20px;
+}
+
+#s2 > div {
+    display: flex;
+    flex-direction: row;
+}
+
+#s2 div div{
+    height: 100%;
+    width: 100%;
+    padding: 40px 40px 0 40px;
+}
+
+#s2 div div:first-child {
+    background-image: url("/images/moon-website-export_0014_center-moon.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#s2 div div:last-child {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
 }
 
 #container-title-story{
@@ -221,4 +255,22 @@ html {
     100% {
         transform: rotate(0deg);
     }
+}
+
+table{
+    width: 100%;
+}
+
+tr {
+    display: inline-table;
+    width: 100%;
+    padding: 20px 0;
+}
+
+tr > td:first-child {
+    width: 75%;
+}
+
+tr > td:last-child {
+    width: 25%;
 }
