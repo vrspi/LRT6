@@ -4,13 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
+    <link rel="shortcut icon" href="/images/logo-dark.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/css/hero.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-    <h1>Welcome to <%= title %></h1>
-    <p>This is a simple EJS template example.</p>
+    <section class="hero">
+        <div class="hero-nav">
+            <img src="/images/logo.png" alt="moon">
+            <h1 id="title">Moon Quakes</h1>
+        </div>
+        <div class="hero-moon">
+            <img src="/images/moon-website-export_0014_center-moon.png" alt="moon">
+        </div>
+        <div class="hero-button">
+            <a href="" class="control-btn">Skip</a>
+            <a href="#s1" class="control-btn">Proceed</a>
+        </div>
+    </section>
 
+    <section class="story" id="s1">
+        <div id="puce">
+            <img src="/images/moon-website-export_0000_star.png" alt="star" height="60px" width="60px">
+            <img src="/images/moon-website-export_0002_lines-copy.png" alt="line">
+        </div>
+        <div id="container-title-story">
+            <div id="title-story">
+                <div>
+                    <img src="/images/moon-website-export_0001_line-horizontal.png" alt="sep">
+                </div>
+                <h1>Test</h1>
+            </div>
+                <p id="typewriter-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt autem minima enim omnis nihil temporibus, quod, quaerat ipsam a deleniti aspernatur facere quas saepe perspiciatis esse, officia ut quam asperiores.
+            Sapiente, ipsum quas suscipit consequuntur, veniam odio harum doloribus ea, officiis saepe ex laboriosam. Sed, obcaecati dicta facilis aut qui, voluptates soluta itaque nisi reiciendis placeat fugiat fugit odio quidem.
+            Quam aliquid provident alias ex modi in animi est maiores distinctio architecto, rerum ad ipsam voluptatibus hic saepe! Nostrum tempora ad ab architecto molestiae reiciendis eaque voluptates tenetur. Corrupti, quia?
+                </p>
+        </div>
+        <div id="d-right">
+            <img src="/images/moon-website-export_0006_astronaut.png" alt="astronaut">
+        </div>
+    </section>
+
+    <script>
+        // Function to start the typewriter effect
+function startTypewriterEffect() {
+    const text = document.getElementById("typewriter-text").innerText;
+    const cursor = document.createElement("span");
+    cursor.className = "cursor";
+    document.getElementById("typewriter-text").innerText = "";
+    document.getElementById("typewriter-text").appendChild(cursor);
+
+    let i = 0;
+
+    function typeWriter() {
+        if (i < text.length) {
+            const char = text.charAt(i);
+            const delay = char === "\n" ? 1000 : 20; // Adjust delay for line breaks
+            cursor.style.display = "inline";
+            cursor.insertAdjacentHTML("beforebegin", char);
+            i++;
+            setTimeout(function () {
+                typeWriter();
+            }, delay);
+        } else {
+            cursor.style.display = "none"; // Hide the cursor when typing is complete
+        }
+    }
+
+    typeWriter();
+}
+
+// Intersection Observer to start the animation when the paragraph is in the viewport
+const paragraph = document.getElementById("typewriter-text");
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            startTypewriterEffect(); // Start animation when in viewport
+            observer.unobserve(entry.target); // Stop observing once animation starts
+        }
+    });
+});
+
+// Start observing the paragraph
+observer.observe(paragraph);
+
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <!-- Example Form -->
-    <h2>Example Form</h2>
+    <!-- <h2>Example Form</h2>
     <form action="/Model" method="POST">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required><br><br>
@@ -19,6 +121,6 @@
         <input type="email" id="email" name="email" required><br><br>
         
         <input type="submit" value="Submit">
-    </form>
+    </form> -->
 </body>
 </html>
