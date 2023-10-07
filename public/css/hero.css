@@ -5,9 +5,23 @@ body {
     /*background-image: url("/images/moon-website-export_0016_bg.png");*/
     background-color: black;
     background-repeat: no-repeat;
+    position: relative;
 }
 html {
     scroll-behavior: smooth;
+}
+
+.load-container{
+    color: #fff;
+    background: black;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
 }
 
 .stars {
@@ -81,22 +95,35 @@ html {
     aspect-ratio: 1/1;
 }
 
-.control-btn{
+.control-btn {
     text-decoration: none;
-    color: #fff;
+    cursor: pointer;
+    color: #000;
+    opacity: 0.6;
+    background-color: #fff;
+    text-align: center;
     font-size: 2rem;
-    border: 3px solid #fff;
     padding: 10px;
-    border-radius: 0 20px 0 20px;
+    min-width: 150px;
     transition: .2s ease-in-out;
-    z-index: 999;
+    z-index: 2;
+    clip-path: polygon(
+  0 0,       /* top-left corner */
+  calc(100% - .5em) 0, /* top-right corner */
+  100% .5em,    /* top-right curve start */
+  100% 100%,    /* bottom-right corner */
+  .5em 100%,     /* bottom-right curve end */
+  0% calc(100% - .5em) /* bottom-left corner */
+);
 }
 
-.control-btn:hover{
-    border-radius: 20px 0 20px 0;
-    scale: 1.05;
+.control-btn:hover {
+    transform: scale(1.05);
     box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.7);
+    opacity: 1;
 }
+
+
 
 .story{
     width:100%;
