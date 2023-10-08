@@ -5,12 +5,378 @@
     font-style: normal;
 }
 
-body {
-    font-family: 'Electrolize', sans-serif;
-}
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Electrolize', sans-serif;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: black;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.load-container{
+    color: #fff;
+    background: black;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #fff;
+    opacity: 0;
+    animation: twinkle 10s infinite;
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.hero{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.hero-nav{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    padding:20px;
+    top: 0;
+}
+.hero-nav > img{
+    height: 2.5rem;
+    aspect-ratio: 1/1;
+}
+.hero-moon{
+    height: 70%;
+}
+
+.hero-button{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 4rem;
+}
+.hero-moon > img{
+    height: 90vh;
+    object-fit: cover;
+}
+
+.control-btn {
+    text-decoration: none;
+    cursor: pointer;
+    color: #000;
+    background-color: #fff;
+    opacity: 0.6;
+    text-align: center;
+    font-size: 2rem;
+    padding: 10px;
+    min-width: 150px;
+    transition: .2s ease-in-out;
+    z-index: 2;
+    clip-path: polygon(
+  0 0,       /* top-left corner */
+  calc(100% - .5em) 0, /* top-right corner */
+  100% .5em,    /* top-right curve start */
+  100% 100%,    /* bottom-right corner */
+  .5em 100%,     /* bottom-right curve end */
+  0% calc(100% - .5em) /* bottom-left corner */
+);
+}
+
+.control-btn:hover {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+#reverse-btn{
+    color: #fff;
+    background-color: #000;
+}
+
+.story{
+    width:100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-bottom: 10px; 
+}
+
+#s1{
+    background-image: url('/images/moon-website-export_0015_moon-(merged).png');
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-size: 726px;
+    background-position-x: right;
+    background-position-y: center;
+}
+
+#s1 > div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+#s2{
+    background-color: #000;
+    color: #fff;
+    display: flex;
+}
+
+#s1, #s2 {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#puce{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 0 0 20px;
+}
+
+#s2 > div {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#s2 div div{
+    height: 100%;
+    width: 100%;
+}
+
+#s2 div div:first-child {
+    background-image: url("/images/moon-website-final-export_0033_moon-copy.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 40px 40px 0 40px;
+}
+
+#s2 div div:last-child {
+    padding: 40px 40px 0 40px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+#container-title-story{
+    padding-top: 42px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 60%;
+}
+#container-title-story > p{
+    font-weight: 500;
+    padding-left: 45px;
+}
+#title-story{
+    display: flex;
+    font-size: 2rem;
+}
+
+#typewriter-text {
+    overflow: hidden;
+    white-space: wrap;
+    font-size: 1.5rem;
+}
+.cursor {
+    border-right: .15em solid #777;
+    display: none;
+    animation: blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+#d-right{
+    position: relative;
+    width: 30%;
+    flex-grow: 1;
+}
+
+#d-right > img:first-child {
+    position: absolute;
+    height: 821px;
+    right: 0px;
+    top: -513px;
+
+}
+
+.wiggle {
+    transition: transform 0.3s ease-in-out;
+    animation: wiggle-animation 10s ease-in-out infinite;
+}
+
+@keyframes wiggle-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(5deg);
+    }
+    50% {
+        transform: rotate(-5deg);
+    }
+    75% {
+        transform: rotate(5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+table{
+    width: 100%;
+}
+
+tr {
+    display: inline-table;
+    width: 100%;
+    padding: 20px 0;
+}
+
+tr > td:first-child {
+    width: 75%;
+}
+
+tr > td:last-child {
+    width: 25%;
+}
+
+
+#s4{
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+#back-video{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+@media (min-aspect-ratio:16/9){
+    #back-video{
+        width: 100%;
+        height: auto;
+    }
+}
+@media (max-aspect-ratio:16/9){
+    #back-video{
+        width: auto;
+        height: 100%;
+    }
+}
+
+
+#s5{
+    background-image: url('/images/moon-website-final-export_0006_astronaut-pic.png');
+    background-size: cover;
+    background-position-y: center;
+    color: #fff;
+}
+
+#s5 > div{
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15%;
+    gap: 30px;
+}
+
+#s5 > div > h1{
+    font-size: 3rem;
+    font-weight: lighter;
+}
+
+#s5 > div > div {
+    display: flex;
+    justify-content: space-around;
+}
+
+#s5 > div > div > img{
+    width: 40%;
+    object-fit: cover;
+    transition: .3s ease;
+}
+
+#s5 > div > div > img:hover{
+    scale: 1.05;
+    cursor: pointer
+}
+
+#s6{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#s6 img{
+    width: 60%;
+    object-fit: cover;
+    transition: .3s ease;
+}
+
+#s6 img:hover{
+    scale: 1.05;
+    cursor: pointer;
 }

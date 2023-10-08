@@ -33,12 +33,11 @@
         }
       }
     </style>
-    <link rel="stylesheet" type="text/css" href="/css/hero.css" />
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <script>
         // animated background
       function createStars() {
-        const starCount = 200;
+        const starCount = 300;
         const stars = document.querySelector(".stars");
 
         for (let i = 0; i < starCount; i++) {
@@ -53,6 +52,7 @@
 
       document.addEventListener("DOMContentLoaded", function () {
         createStars();
+        document.querySelector(".stars-end").innerHTML = document.querySelector(".stars").innerHTML;
       });
     </script>
   </head>
@@ -70,63 +70,64 @@
     <section class="hero">
       <div class="hero-nav">
         <img src="/images/logo.png" alt="moon" />
-        <h1 id="title">Moon Quakes</h1>
       </div>
       <div class="hero-moon">
         <img
-          src="/images/moon-website-export_0014_center-moon.png"
+          src="/images/moon quakes.webp"
           alt="moon"
         />
       </div>
       <div class="hero-button">
-        <a href="" class="control-btn">Skip</a>
+        <a href="./Model" class="control-btn">Skip</a>
         <a href="#s1" class="control-btn">Proceed</a>
       </div>
       <div class="stars"></div>
     </section>
 
     <section class="story" id="s1">
-      <div id="puce">
-        <img
-          src="/images/moon-website-export_0000_star.png"
-          alt="star"
-          height="60px"
-          width="60px"
-        />
-        <img src="/images/moon-website-export_0002_lines-copy.png" alt="line" />
-      </div>
-      <div id="container-title-story">
-        <div id="title-story">
-          <div>
-            <img
-              src="/images/moon-website-export_0001_line-horizontal.png"
-              alt="sep"
-            />
-          </div>
-          <h1>Test</h1>
+      <div>
+        <div id="puce">
+          <img
+            src="/images/moon-website-export_0000_star.png"
+            alt="star"
+            height="60px"
+            width="60px"
+          />
+          <img src="/images/moon-website-export_0002_lines-copy.png" alt="line" />
         </div>
-        <p id="typewriter-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt autem
-          minima enim omnis nihil temporibus, quod, quaerat ipsam a deleniti
-          aspernatur facere quas saepe perspiciatis esse, officia ut quam
-          asperiores. Sapiente, ipsum quas suscipit consequuntur, veniam odio
-          harum doloribus ea, officiis saepe ex laboriosam. Sed, obcaecati dicta
-          facilis aut qui, voluptates soluta itaque nisi reiciendis placeat
-          fugiat fugit odio quidem. Quam aliquid provident alias ex modi in
-          animi est maiores distinctio architecto, rerum ad ipsam voluptatibus
-          hic saepe! Nostrum tempora ad ab architecto molestiae reiciendis eaque
-          voluptates tenetur. Corrupti, quia?
-        </p>
-      </div>
-      <div id="d-right">
-        <img
-          src="/images/moon-website-export_0006_astronaut.png"
-          class="wiggle"
-          alt="astronaut"
-        />
+        <div id="container-title-story">
+          <div id="title-story">
+            <div>
+              <img
+                src="/images/moon-website-export_0001_line-horizontal.png"
+                alt="sep"
+              />
+            </div>
+            <h1>Test</h1>
+          </div>
+          <p id="typewriter-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt autem
+            minima enim omnis nihil temporibus, quod, quaerat ipsam a deleniti
+            aspernatur facere quas saepe perspiciatis esse, officia ut quam
+            asperiores. Sapiente, ipsum quas suscipit consequuntur, veniam odio
+            harum doloribus ea, officiis saepe ex laboriosam. Sed, obcaecati dicta
+            facilis aut qui, voluptates soluta itaque nisi reiciendis placeat
+            fugiat fugit odio quidem. Quam aliquid provident alias ex modi in
+            animi est maiores distinctio architecto, rerum ad ipsam voluptatibus
+            hic saepe! Nostrum tempora ad ab architecto molestiae reiciendis eaque
+            voluptates tenetur. Corrupti, quia?
+          </p>
+        </div>
+        <div id="d-right">
+          <img
+            src="/images/moon-website-export_0006_astronaut.png"
+            class="wiggle"
+            alt="astronaut"
+          />
+        </div>
       </div>
       
-      <a href="#s2" class="control-btn">next</a>
+      <a href="#s2" class="control-btn" id="reverse-btn">Next</a>
     </section>
 
     <section class="story" id="s2">
@@ -171,7 +172,34 @@
         </div>
       </div>
       
-      <a href="#s2" class="control-btn">next</a>
+      <a href="#s3" class="control-btn">Next</a>
+    </section>
+    
+    <section class="story" id="s3">
+      
+      <a href="#s4" class="control-btn">Next</a>
+    </section>
+    
+    <section class="story" id="s4">
+      <video autoplay loop muted plays-inline id="back-video">
+        <source src="/videos/moon landing~1.mp4" type="video/mp4">
+      </video>
+      <a href="#s5" class="control-btn">Next</a>
+    </section>
+
+    <section class="story"  id="s5">
+      <div>
+        <h1>Do you think there are <br/> quakes on the Moon ?</h1>
+        <div>
+          <img src="/images/moon-website-final-export_0003_YES.png" alt="explore" onclick="window.location.href = './#s6';">
+          <img src="/images/moon-website-final-export_0004_NO.png" alt="explore" onclick="window.location.href = './#s6';">
+        </div>
+      </div>
+    </section>
+
+    <section class="story" id="s6">
+      <div class="stars-end"></div>
+      <img src="/images/moon-website-final-export_0000_EXPLORE.png" alt="explore" onclick="window.location.href = './Model';">
     </section>
 
     <script>
@@ -184,7 +212,6 @@
         document.getElementById("typewriter-text").appendChild(cursor);
 
         let i = 0;
-
         function typeWriter() {
           if (i < text.length) {
             const char = text.charAt(i);
@@ -199,7 +226,7 @@
             cursor.style.display = "none"; // Hide the cursor when typing is complete
           }
         }
-
+        
         typeWriter();
       }
 
