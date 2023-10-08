@@ -34,30 +34,9 @@
       }
     </style>
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
-    <script>
-        // animated background
-      /* function createStars() {
-        const starCount = 500;
-        const stars = document.querySelector(".stars");
-
-        for (let i = 0; i < starCount; i++) {
-          const star = document.createElement("div");
-          star.classList.add("star");
-          star.style.left = `${Math.random() * 100}%`;
-          star.style.top = `${Math.random() * 100}%`;
-          star.style.animationDuration = `${1 + Math.random() * 10}s`;
-          stars.appendChild(star);
-        }
-      }
-
-      document.addEventListener("DOMContentLoaded", function () {
-        createStars();
-        document.querySelector(".stars-end").innerHTML = document.querySelector(".stars").innerHTML;
-      }); */
-    </script>
   </head>
   <body>
-    <div class="load-container">
+    <div class="load-container" id="top">
         <h1>For the optimal experience, please use headphones.</h1>
       <div class="loader"></div>
       <audio id="preloadAudio">
@@ -92,16 +71,16 @@
             src="/images/moon-website-export_0000_star.png"
             alt="star"
             height="60px"
-            width="60px"
+            width="60px" loading="lazy"
           />
-          <img src="/images/moon-website-export_0002_lines-copy.png" alt="line" />
+          <img src="/images/moon-website-export_0002_lines-copy.png" alt="line"  loading="lazy"/>
         </div>
         <div id="container-title-story">
           <div id="title-story">
             <div>
               <img
                 src="/images/moon-website-export_0001_line-horizontal.png"
-                alt="sep"
+                alt="sep" loading="lazy"
               />
             </div>
             <h1>The Enigma of the Moon</h1>
@@ -125,7 +104,7 @@
         <div></div>
         <div>
           <h1>WHY THE MOON?</h1>
-          <p id="typewriter-text">The Moon, our closest celestial neighbor, provides an unparalleled
+          <p>The Moon, our closest celestial neighbor, provides an unparalleled
             opportunity to explore a wealth of accumulated astronomical
             and geological data. Its proximity and the extensive studies
             conducted over decades make it a rich, accessible data source
@@ -134,7 +113,7 @@
             and potential resources but also lays a foundational framework
             for broader celestial exploration, ensuring our endeavors in space
             are always grounded in robust scientific data and exploration. At
-            <a href="./Team">LRT6</a>, we harness this rich vein of lunar
+            <a href="./Team" id="link">LRT6</a>, we harness this rich vein of lunar
             data, propelling our research and development activities into the
             cosmos.</p>
             <table>
@@ -166,7 +145,7 @@
     </section>
     
     <section class="story" id="s3">
-      <img src="/images/moon-website-final-export_0020_APOLLO-11.png" alt="explore">
+      <img src="/images/moon-website-final-export_0020_APOLLO-11.png" alt="explore" loading="lazy">
       <div id="s3-core">
         <div>
           <p><span>Apollo 11</span> &nbsp; was a historic achievement, marking humanity's first
@@ -184,11 +163,11 @@
                 <td>Neil Armtrong <br> <small>(Commander)</small> </td>
               </tr>
               <tr>
-                <td></td>
+                <td id="no-bg"></td>
                 <td>Buzz ALdrin <br>  <small>(Lunar Module Pilot)</small></td>
               </tr>
               <tr>
-                <td></td>
+                <td id="no-bg"></td>
                 <td>Michael Collins <br>  <small>(Command Module Pilot)</small></td>
               </tr>
             </table>
@@ -222,25 +201,25 @@
       <div>
         <h1>Do you think there are <br/> quakes on the Moon ?</h1>
         <div>
-          <img src="/images/moon-website-final-export_0003_YES.png" alt="explore" onclick="window.location.href = './#s6';playaudio('6 yes');">
-          <img src="/images/moon-website-final-export_0004_NO.png" alt="explore" onclick="window.location.href = './#s6';playaudio('6 no');">
+          <img src="/images/moon-website-final-export_0003_YES.png" alt="explore" onclick="window.location.href = './#s6';playaudio('6 yes');" loading="lazy">
+          <img src="/images/moon-website-final-export_0004_NO.png" alt="explore" onclick="window.location.href = './#s6';playaudio('6 no');" loading="lazy">
         </div>
       </div>
     </section>
 
     <section class="story" id="s6">
       <div class="stars-end"></div>
-      <img src="/images/moon-website-final-export_0000_EXPLORE.png" alt="explore" onclick="window.location.href = './Model';">
+      <img src="/images/moon-website-final-export_0000_EXPLORE.png" alt="explore" onclick="window.location.href = './Model';" loading="lazy">
     </section>
     
     <script>
+
       const audio = document.getElementById("preloadAudio");
       const player = (audio).querySelector('#audio-player');
       function playaudio(name){
         audio.pause();
         player.src="/audio/section "+name+".mp3";
         audio.load();
-        //audio.currentTime -= 1000;
         audio.play();
       }
 
@@ -289,9 +268,6 @@
       
 
       function hideloader() {
-        //play audio
-        //audio.currentTime -= 1000;
-        audio.play();
         
         const element = document.querySelector(".load-container");
         
@@ -300,6 +276,8 @@
         setTimeout(_=>{
           element.style.display = 'none';
         }, 500);
+        //play audio
+        audio.play();
       }
     </script>
   </body>
