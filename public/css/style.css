@@ -46,7 +46,7 @@ body {
     flex-direction: column;
 }
 .hero, #s6{
-    background-image: url("/images/moon-website-export_0016_bg.png");
+    background-image: url("/images/moon-website-export_0016_bg.webp");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -128,7 +128,7 @@ body {
 }
 
 #s1{
-    background-image: url('/images/moon-website-export_0015_moon-(merged).png');
+    background-image: url('/images/moon-website-export_0015_moon-(merged).webp');
     background-color: #fff;
     background-repeat: no-repeat;
     background-size: 726px;
@@ -183,7 +183,7 @@ body {
     font-size: 3.1em;
 }
 #s2 div div:first-child {
-    background-image: url("/images/moon-website-final-export_0033_moon-copy.png");
+    background-image: url("/images/moon-website-final-export_0033_moon-copy.webp");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -191,7 +191,7 @@ body {
 }
 
 #s2 > div > div > table > tbody > tr > td, #s3 > div > div > table > tbody > tr > td {
-    background-image: url(/images/underline.png);
+    background-image: url(/images/underline.webp);
     background-repeat: no-repeat;
     background-position-x: 0%;
     background-position-y: center;
@@ -339,7 +339,7 @@ tr > td:last-child {
 }
 
 #s3 div:last-child{
-    background-image: url("/images/moon-website-final-export_0007_apollo-11-ship-croped.png");
+    background-image: url("/images/moon-website-final-export_0007_apollo-11-ship-croped.webp");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -381,7 +381,7 @@ tr > td:last-child {
 
 
 #s5{
-    background-image: url('/images/moon-website-final-export_0006_astronaut-pic.png');
+    background-image: url('/images/moon-website-final-export_0006_astronaut-pic.webp');
     background-size: cover;
     background-position-y: center;
     color: #fff;
