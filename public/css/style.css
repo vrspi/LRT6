@@ -131,6 +131,7 @@ body {
 
 #s1{
     background-image: url('/images/moon-website-export_0015_moon-(merged).webp');
+    overflow: visible;
     background-color: #fff;
     background-repeat: no-repeat;
     background-size: 726px;
