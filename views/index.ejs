@@ -36,8 +36,8 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <script>
         // animated background
-      function createStars() {
-        const starCount = 300;
+      /* function createStars() {
+        const starCount = 500;
         const stars = document.querySelector(".stars");
 
         for (let i = 0; i < starCount; i++) {
@@ -53,7 +53,7 @@
       document.addEventListener("DOMContentLoaded", function () {
         createStars();
         document.querySelector(".stars-end").innerHTML = document.querySelector(".stars").innerHTML;
-      });
+      }); */
     </script>
   </head>
   <body>
@@ -61,7 +61,7 @@
         <h1>For the optimal experience, please use headphones.</h1>
       <div class="loader"></div>
       <audio id="preloadAudio">
-        <source src="/audio/start.mp3" type="audio/mp3">
+        <source src="/audio/start.mp3" type="audio/mp3" id="audio-player">
       </audio>
       
       <a class="control-btn" onclick="hideloader()">Understood</a>
@@ -77,9 +77,10 @@
           alt="moon"
         />
       </div>
+      <!-- ! -->
       <div class="hero-button">
-        <a href="./Model" class="control-btn">Skip</a>
-        <a href="#s1" class="control-btn">Proceed</a>
+        <img src="/images/moon-website-final-export_0041_skip-btn-.png" alt="Skip" onclick="window.location.href = './Model';">
+        <img src="/images/moon-website-final-export_0039_proceed-btn--copy.png" alt="Proceed" onclick="window.location.href = './#s1';playaudio('1');">
       </div>
       <div class="stars"></div>
     </section>
@@ -103,20 +104,9 @@
                 alt="sep"
               />
             </div>
-            <h1>Test</h1>
+            <h1>The Enigma of the Moon</h1>
           </div>
-          <p id="typewriter-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt autem
-            minima enim omnis nihil temporibus, quod, quaerat ipsam a deleniti
-            aspernatur facere quas saepe perspiciatis esse, officia ut quam
-            asperiores. Sapiente, ipsum quas suscipit consequuntur, veniam odio
-            harum doloribus ea, officiis saepe ex laboriosam. Sed, obcaecati dicta
-            facilis aut qui, voluptates soluta itaque nisi reiciendis placeat
-            fugiat fugit odio quidem. Quam aliquid provident alias ex modi in
-            animi est maiores distinctio architecto, rerum ad ipsam voluptatibus
-            hic saepe! Nostrum tempora ad ab architecto molestiae reiciendis eaque
-            voluptates tenetur. Corrupti, quia?
-          </p>
+          <p id="typewriter-text">The Moon has always fascinated humanity, weaving a tapestry of awe, myth, and exploration across cultures and time. Its phases mark time in ancient calendars and inspire stories of moon goddesses. It influences tides and celestial balances, driving scientific curiosity. The Moon's beauty inspires poets and beckons us to explore the cosmos. From myth to science, it has been a celestial wonder throughout history.</p>
         </div>
         <div id="d-right">
           <img
@@ -127,7 +117,7 @@
         </div>
       </div>
       
-      <a href="#s2" class="control-btn" id="reverse-btn">Next</a>
+      <a href="#s2" class="control-btn" id="reverse-btn" onclick="playaudio('2');">Next</a>
     </section>
 
     <section class="story" id="s2">
@@ -135,7 +125,7 @@
         <div></div>
         <div>
           <h1>WHY THE MOON?</h1>
-          <p>The Moon, our closest celestial neighbor, provides an unparalleled
+          <p id="typewriter-text">The Moon, our closest celestial neighbor, provides an unparalleled
             opportunity to explore a wealth of accumulated astronomical
             and geological data. Its proximity and the extensive studies
             conducted over decades make it a rich, accessible data source
@@ -144,7 +134,7 @@
             and potential resources but also lays a foundational framework
             for broader celestial exploration, ensuring our endeavors in space
             are always grounded in robust scientific data and exploration. At
-            <b>moonquakes.com</b>, we harness this rich vein of lunar
+            <a href="./Team">LRT6</a>, we harness this rich vein of lunar
             data, propelling our research and development activities into the
             cosmos.</p>
             <table>
@@ -172,27 +162,68 @@
         </div>
       </div>
       
-      <a href="#s3" class="control-btn">Next</a>
+      <a href="#s3" class="control-btn" onclick="playaudio('3');">Next</a>
     </section>
     
     <section class="story" id="s3">
-      
-      <a href="#s4" class="control-btn">Next</a>
+      <img src="/images/moon-website-final-export_0020_APOLLO-11.png" alt="explore">
+      <div id="s3-core">
+        <div>
+          <p><span>Apollo 11</span> &nbsp; was a historic achievement, marking humanity's first
+            steps on another celestial body and showcasing the capability
+            for humans to explore beyond our planet. The mission returned
+            valuable scientific data and samples from the Moon and paved
+            the way for future space exploration.</p>
+            <table>
+              <tr>
+                <td>Launch Date</td>
+                <td>July 16, 1969</td>
+              </tr>
+              <tr>
+                <td>Crew</td>
+                <td>Neil Armtrong <br> <small>(Commander)</small> </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Buzz ALdrin <br>  <small>(Lunar Module Pilot)</small></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Michael Collins <br>  <small>(Command Module Pilot)</small></td>
+              </tr>
+            </table>
+        </div>
+        <div></div>
+      </div>
+      <div id="list">
+        <br>
+        <h1>Key Events</h1>
+        <ul>
+          <li>Armstrong and Aldrin landed the lunar module, "Eagle." on the Moon on July 20,1969, while Collins orbited above in the command module.
+          </li>
+          <li>Armstrong famously declared. "That's one small step for [a] man, one giant leap for mankind," as he became the first human to step onto the Moon.</li>
+          <li>The astronauts spent approximately 21 hours on the Moon, conducting experiments and collecting samples.</li>
+          <li>Armstrong and Aldrin rejoined Collins in lunar orbit and returned to Earth, splashing down safely in the Pacific Ocean on July 24, 1969.</li>
+        </ul>
+      </div>
+      <a href="#s4" class="control-btn" onclick="playaudio('4');">Next</a>
     </section>
     
     <section class="story" id="s4">
       <video autoplay loop muted plays-inline id="back-video">
         <source src="/videos/moon landing~1.mp4" type="video/mp4">
       </video>
-      <a href="#s5" class="control-btn">Next</a>
+      <div>
+        <a href="#s5" class="control-btn control-btn-video" id="reverse-btn" onclick="playaudio('5');">Next</a>
+      </div>
     </section>
 
     <section class="story"  id="s5">
       <div>
         <h1>Do you think there are <br/> quakes on the Moon ?</h1>
         <div>
-          <img src="/images/moon-website-final-export_0003_YES.png" alt="explore" onclick="window.location.href = './#s6';">
-          <img src="/images/moon-website-final-export_0004_NO.png" alt="explore" onclick="window.location.href = './#s6';">
+          <img src="/images/moon-website-final-export_0003_YES.png" alt="explore" onclick="window.location.href = './#s6';playaudio('6 yes');">
+          <img src="/images/moon-website-final-export_0004_NO.png" alt="explore" onclick="window.location.href = './#s6';playaudio('6 no');">
         </div>
       </div>
     </section>
@@ -201,8 +232,19 @@
       <div class="stars-end"></div>
       <img src="/images/moon-website-final-export_0000_EXPLORE.png" alt="explore" onclick="window.location.href = './Model';">
     </section>
-
+    
     <script>
+      const audio = document.getElementById("preloadAudio");
+      const player = (audio).querySelector('#audio-player');
+      function playaudio(name){
+        audio.pause();
+        player.src="/audio/section "+name+".mp3";
+        audio.load();
+        //audio.currentTime -= 1000;
+        audio.play();
+      }
+
+
       // Function to start the typewriter effect
       function startTypewriterEffect() {
         const text = document.getElementById("typewriter-text").innerText;
@@ -245,20 +287,19 @@
       // Start observing the paragraph
       observer.observe(paragraph);
       
-      var audio = document.getElementById("preloadAudio");
 
       function hideloader() {
         //play audio
+        //audio.currentTime -= 1000;
         audio.play();
         
         const element = document.querySelector(".load-container");
-
-element.style.transition = 'opacity 0.5s ease';
-element.style.opacity = '0';
-setTimeout(_=>{
-    element.style.display = 'none';
-
-}, 500);
+        
+        element.style.transition = 'opacity 0.5s ease';
+        element.style.opacity = '0';
+        setTimeout(_=>{
+          element.style.display = 'none';
+        }, 500);
       }
     </script>
   </body>

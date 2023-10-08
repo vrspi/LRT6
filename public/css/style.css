@@ -74,6 +74,12 @@ body {
     justify-content: center;
     flex-direction: column;
 }
+.hero, #s6{
+    background-image: url("/images/moon-website-export_0016_bg.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
 .hero-nav{
     position: absolute;
@@ -96,7 +102,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    column-gap: 4rem;
+    column-gap: 2rem;
 }
 .hero-moon > img{
     height: 90vh;
@@ -108,11 +114,10 @@ body {
     cursor: pointer;
     color: #000;
     background-color: #fff;
-    opacity: 0.6;
+    opacity: 0.8;
     text-align: center;
     font-size: 2rem;
     padding: 10px;
-    min-width: 150px;
     transition: .2s ease-in-out;
     z-index: 2;
     clip-path: polygon(
@@ -128,6 +133,13 @@ body {
 .control-btn:hover {
     transform: scale(1.05);
     opacity: 1;
+}
+.control-btn-video{
+    opacity: 0.4 !important;
+}
+
+.control-btn-video:hover {
+    opacity: 1 !important;
 }
 
 #reverse-btn{
@@ -158,6 +170,11 @@ body {
     height: 100%;
     display: flex;
     flex-direction: row;
+}
+
+#s1 p {
+    font-size: 1.5rem;
+    line-height: 2.5ch;
 }
 
 #s2{
@@ -191,7 +208,9 @@ body {
     height: 100%;
     width: 100%;
 }
-
+#s2 > div > div > h1{
+    font-size: 3.1em;
+}
 #s2 div div:first-child {
     background-image: url("/images/moon-website-final-export_0033_moon-copy.png");
     background-position: center;
@@ -226,7 +245,6 @@ body {
 #typewriter-text {
     overflow: hidden;
     white-space: wrap;
-    font-size: 1.5rem;
 }
 .cursor {
     border-right: .15em solid #777;
@@ -282,6 +300,7 @@ body {
 
 table{
     width: 100%;
+    font-weight: bolder;
 }
 
 tr {
@@ -299,10 +318,65 @@ tr > td:last-child {
 }
 
 
+#s3{
+    color: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+    align-items: center;
+    justify-content: space-between;
+    row-gap: 10px;
+}
+
+#s3-core{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    height: 100%;
+}
+
+#s3-core > div:first-child{
+    padding: 0px 90px;
+}
+
+#s3-core div{
+    width: 50%;
+    height: 100%;
+}
+#s3-core > div > p > span{
+    font-size: x-large;
+}
+#s3 > img{
+    object-fit: none;
+    margin: 10px 0;
+    height: 80px;
+}
+#list{
+    width: 85%;
+}
+
+#list > ul{
+    padding-left: 60px;
+}
+
+#s3 div:last-child{
+    background-image: url("/images/moon-website-final-export_0007_apollo-11-ship-croped.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+
 #s4{
     background-color: transparent;
     position: relative;
     overflow: hidden;
+}
+
+#s4 div {
+    height: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
 }
 
 #back-video{
@@ -351,6 +425,7 @@ tr > td:last-child {
 #s5 > div > div {
     display: flex;
     justify-content: space-around;
+    font-weight: bolder;
 }
 
 #s5 > div > div > img{
@@ -377,6 +452,18 @@ tr > td:last-child {
 }
 
 #s6 img:hover{
+    scale: 1.05;
+    cursor: pointer;
+}
+
+.hero-button > img{
+    width: 11%;
+    object-fit: cover;
+    transition: .3s ease;
+    z-index: 1;
+}
+
+.hero-button > img:hover{
     scale: 1.05;
     cursor: pointer;
 }
