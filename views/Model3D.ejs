@@ -3,204 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="/css/style.css"> -->
-
-    <!-- <link rel="stylesheet" href="/css/style.css"> -->
-
-    <title><%= title %></title>
     
-    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/vrspi/CDN@1.0.6/public/logo-dark.webp" type="image/x-icon" />
+    <title><%= title %></title>
     <style>
+
+        @font-face {
+            font-family: 'Electrolize';
+            src: url('/fonts/ELECTROLIZE-REGULAR.TTF') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+
         *{
             padding: 0px;
             margin: 0px;
             box-sizing: border-box;
+            font-family: 'Electrolize';
         }
 
         body { margin: 0; }
         canvas { width: 100%; height: 100% ; vertical-align:bottom}
 
-        .controls{position: absolute; padding: 1%;width: 20%; margin:2% ;height: 450px; display: flex; flex-direction: column;justify-content: center;align-items: center;gap: 10px}
 
-        .button_div{width: 100%;height: 10%;}
-        .button1{border: 2px solid rgb(255, 255, 255);width:60%;height: 100%; color: white;background-color: black;}
-        .button1:hover{border: 2px solid rgb(0, 0, 0); color:rgb(0, 0, 0);background-color: rgb(255, 255, 255);}
-        
-
-        .control1{width: 100%; display: flex; flex-direction: column;justify-content: center;align-items: center;}
-        .division{width: 100%;display: flex; justify-content: center;align-items: center;}
-        .division1{width: 80%;height: 100%;padding: 3px;border: 1px solid rgb(255, 255, 255);}
-        .division2{width: 20%;height: 100%;border: 1px solid rgb(255, 255, 255);display: flex;justify-content: center;align-items: center;}
         .text{
             font-size: 13px;
             padding-left: 20px;
             font-weight: 800;
-            color: white;
-        }
-        .button_off{
-            width: 90%;
-            border-radius: 3px;
-            height: 30px;
-            background-color: white;
-            color: black;
-        }
-        .button_off:hover{
-            background-color: rgb(0, 0, 0);
             color: rgb(255, 255, 255);
+            margin-bottom: 10px;
         }
-        .control2{
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .select
-        {
-            width: 35%;
+      
+        .icon-1 {
+  cursor: pointer;
+}
+        .outer {
+            width: 30%;
+            height: 70vh;
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            padding: 100px;
+            background-image: url("images/infobox.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+
             background-color: black;
-            border: 2px solid rgb(255, 255, 255);
-            height: 100%;
-            color: white;
+
+        }
+        .sharp-corner {
+            width: 100%;
+            height: 50%;
+            border:2px solid white;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            
         }
 
-        
+
+
+
+        .outer1 {
+            width: 30%;
+            height: 70vh;
+            position: absolute;
+            left: 15px;
+            top: 150px;
+            padding: 100px;
+            background-image: url("images/infobox.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+
+
+        .controllers{
+            height: 90px;
+            width: 70%;
+            gap: 20px;
+            padding:5px;
+            position: absolute;
+            margin-top:20px;
+            margin-left:5px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .controllerss{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+            gap:18px;
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 5px;  
+            background: url('design/slider.png');
+            outline: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;  
+            height: 20px; 
+            background: url('design/sliderpoint.png');
+            cursor: pointer;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 50px;  
+            height: 50px;  
+            background: url('design/slider.png');
+            cursor: pointer;
+        }
+
+
+
+        .imgbutton:hover{
+            filter: 
+            drop-shadow(0 0 10px rgba(255, 255, 255, 1)) 
+            drop-shadow(0 0 12px rgba(255, 255, 255, 1));
+            transition: filter 0.3s ease;
+            cursor: pointer;
+
+
+        }
+
+
+        #BackToHome{
+            position: absolute;
+            top: 680px;
+            left: 20px;
+            width: 200px;
+            height: 40px;
+            color: white;
+            background-color: black;
+            border: 2px solid white;
+            font-weight: 900;
+            border-radius: 15px 0px 15px 0px;
+
+        }
+        #BackToHome:hover{
+            color: black;
+            background-color:white;
+            border: 2px solid black;
+        }
+
+        .select{
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            color: white;
+            text-align: center;
+            clip-path: polygon(50% 0%, 90% 0, 100% 30%, 100% 75%, 100% 100%, 10% 99%, 0 70%, 0 0, 25% 0);
+        }
+
+        .selectouter
+        {
+            position: relative;
+            width: 100px;
+            height: 30px;
+            padding: 2px;
+            background: white;
+            clip-path: polygon(50% 0%, 90% 0, 100% 30%, 100% 75%, 100% 100%, 10% 99%, 0 70%, 0 0, 25% 0);
+        }
+
+
+        .information1{
+            padding:5px;
+        }
+
+
 
         
     </style>
 </head>
 <body id="bod" style="margin: 0;">
-    <div class="controls">
 
-
-        <div class="button_div">
-            <button class="button1">Back To Home</button>
+    <div class="controllers">
+        <div class="controllerss">
+            <p class="text">Latitude & Longitude</p>
+            <p class="text">Moonquakes</p>
+        </div>
+        <div class="controllerss">
+            <img class="imgbutton" id="lat_log" src="/design/off.png" alt="">
+            <img class="imgbutton" id="moon_quakes" src="/design/off.png" alt="">
+        </div>
+        <div class="controllerss">
+            <p class="text">Apollo Landers</p>
+           
+        </div>
+        <div class="controllerss">
+            <img class="imgbutton" id="appolo" src="/design/off.png" alt="">
+            
         </div>
 
-
-        <div class="control1">
-            <div class="division">
-                <div class="division1">
-                    <p class="text"> World Axes</p>
-                    <p class="text"> x-axis : <span style="color: orange;">Orange</span></p>
-                    <p class="text"> y-axis : <span style="color: green;">Green</span></p>
-                    <p class="text"> z-axis : <span style="color: blue;">Blue</span></p>
-                </div>
-                <div class="division2">
-                    <button class="button_off">off</button>
-                </div>
+        <div class="controllerss">
+            <div class="selectouter">
+                <select id="year" class="select" >
+                </select>
             </div>
-            <div class="division">
-                <div class="division1">
-                    <p class="text">Lattitude && Longitude</p>
-                </div>
-                <div class="division2">
-                    <button class="button_off">off</button>
-                </div>
+            
+            
+            <div class="selectouter">
+                <select id="day"  class="select"></select>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
             </div>
-            <div class="division">
-                <div class="division1">
-                    <p class="text">Hight Map</p>
-                </div>
-                <div class="division2">
-                    <button class="button_off">off</button>
-                </div>
-            </div>
-            <div class="division">
-                <div class="division1">
-                    <p class="text">Apollo Landers</p>
-                </div>
-                <div class="division2">
-                    <button class="button_off">off</button>
-                </div>
-            </div>
-            <div class="division">
-                <div class="division1">
-                    <p class="text">Seas & Oceans</p>
-                </div>
-                <div class="division2">
-                    <button class="button_off">off</button>
-                </div>
-            </div>
+                
         </div>
-
-
-
-        <div class="control1">
-            <div class="division">
-                <div class="division1">  
-                    <p class="text">Directional Light Intensity <span id="Directional_Light">50</span></p> 
-                    <input type="range" min="-400" max="400" value="50" class="slider" id="volume-control">
-                </div>
-                <div class="division2">
-                    <button id="reset_volume_control" class="button_off">reset</button>
-                </div>
-            </div>
-            <div class="division">
-                <div class="division1">
-                    <p class="text">Ambient Light Intensity <span>3</span></p> 
-                    <input type="range" min="0" max="100" value="50" class="slider" id="volume-control">
-                </div>
-                <div class="division2">
-                    <button class="button_off">reset</button>
-                </div>
-            </div>
+        <div class="controllerss">
+            <p class="text" style="margin-bottom: 20px;">Directional Light <span style="margin-left: 20px;" id="Directional_Light">40</span></p> 
+            <p></p>
         </div>
-
-
-
-        <div class="control2">
-            <select class="select" name="" id="">
-                <option value="">Year</option>
-                <option value="1971">1971</option>
-                <option value="1972">1972</option>
-                <option value="1973">1973</option>
-                <option value="1974">1974</option>
-                <option value="1975">1975</option>
-                <option value="1976">1976</option>
-            </select>
-            <select  class="select" name="" id="">
-                <option value="">Days</option>
-                <option value="39">39</option>
-                <option value="72">72</option>
-                <option value="171">171</option>
-                <option value="274">274</option>
-            </select>
-            <button style="width: 27%;" class="button_off">Apply</button>
-        </div>      
-
-
-        <div class="button_div">
-            <button class="button1">View in First Person!</button>
+        <div class="controllerss">
+            <input type="range" min="-400" max="400" value="40" class="slider" id="volume-control">
+            <button style="background: white;color: black;width: 70px;height: 30px;margin-top: 10px;" id="reset_volume_control" class="button_off">reset</button>
         </div>
-
-        <div>
-            <button class="button1" id="retate_button">rotation</button>
+        <div class="controllerss">
+            <img class="imgbutton" id="retate_button" src="/design/play.png" alt="">
+            <img class="imgbutton" id="retate_button_pause" src="/design/pause.png" alt="">
         </div>
     </div>
 
+ 
 
+    <div  id="information" style="display: none;" class="outer">
+        <div id="station_img" class="sharp-corner" >
+        </div>
+        <p id="station_text" style="color: white;margin-top: 30px;font-size: 12px;"></p>
+    </div>
+
+
+
+
+    <div  id="information1" style="display: none;"  class="outer1">
+        <The id="station_text" style="color: white;">The insights provided are based on exploratory analyses of datasets such as <b style="color: brown;">nakamura_1979_sm_locations.csv</b> and others, and should be considered preliminary. The findings are subject to the accuracy and completeness of the utilized data and methodologies. Further validation with additional data and methodologies is crucial for affirming these initial insights, and no guarantee of absolute accuracy can be ensured due to the complex nature of seismic data.</p>
+    </div>
     
-    <!-- <h1>Welcome to My App</h1> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> -->
+    
+
+    <div class="button_div">
+        <button id="BackToHome" class="button1">Back To Home</button>
+    </div> 
+
+
+    <img style="position: absolute;top:600px;right:10px" src="/design/xyz.png" alt="">
+
+
     <script type="module">
-        
         import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.121.1/build/three.module.js';
         import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/controls/OrbitControls.js';
+        import { OBJLoader } from 'https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/loaders/OBJLoader.js';
 
-    // Defining variables
-    //var textureURL = "images/2k_moon.jpg"; 
-    //var displacementURL = "images/MOON_DISPLACEMENT_46K_16BITS_preview.jpg"; 
-    //var worldURL = "images/2k_stars_milky_way.jpg";
+;
 
     var textureURL = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/17271/lroc_color_poles_1k.jpg"; 
     var displacementURL = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/17271/ldem_3_8bit.jpg"; 
     var worldURL = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/17271/hipp8_s.jpg"
     var normalTexture = "images/moonnormal.bmp";
-    var overlayTexture = 'path/to/overlay.gif'; // Ensure your server supports GIF loading
+    var overlayTexture = 'path/to/overlay.gif'; 
 
-    // Convert lat/long to UV coordinates
-    var lat = -3.6445; // Your latitude
-    var lon = -17.47753; // Your longitude
+
+    var lat = -3.6445; 
+    var lon = -17.47753; 
     var u = (lon + 180) / 360;
     var v = (90 - lat) / 180;
     var scene = new THREE.Scene();
@@ -221,7 +296,7 @@
     var geometry = new THREE.SphereGeometry(2,60,60);
     var textureLoader = new THREE.TextureLoader();
     
-    // Nested loading of textures to ensure all are loaded before use
+
     textureLoader.load(textureURL, function(texture) {
     textureLoader.load(displacementURL, function(displacement) {
         textureLoader.load(worldURL, function(worldTexture) {
@@ -230,7 +305,7 @@
                 var material = new THREE.MeshPhongMaterial({
                     color: 0xffffff,
                     map: texture,
-                    displacementMap: displacement,
+                    
                     displacementScale: 0.06,
                     bumpMap: displacement,
                     bumpScale: 0.04,
@@ -275,10 +350,7 @@
 
             
     
-                // moon.rotation.x = 3.1415*0.02;
-                // moon.rotation.y = 3.1415*1.54;
-    
-                // Animate function
+       
                 function animate() {
                     requestAnimationFrame(animate);
                     // moon.rotation.y += 0.002;
@@ -286,6 +358,31 @@
                     // world.rotation.y += 0.0001;
                     // world.rotation.x += 0.0005;
                     controls.update();
+                    
+            
+                        var distance = camera.position.distanceTo(moon.position);
+
+        
+                    var minDistance = 4;
+                    var maxDistance = 6;  
+             
+                    if (distance < minDistance) {
+                        
+                        var direction = new THREE.Vector3();
+                        camera.getWorldPosition(direction);
+                        direction.sub(moon.position).normalize();
+                        
+                       
+                        camera.position.copy(moon.position).addScaledVector(direction, minDistance);
+                    }
+                  
+                    if (distance > maxDistance) {
+                        var direction = new THREE.Vector3();
+                        camera.getWorldPosition(direction);
+                        direction.sub(moon.position).normalize();
+                        
+                        camera.position.copy(moon.position).addScaledVector(direction, maxDistance);
+                    }
                     renderer.render(scene, camera);
                 }
     
@@ -300,12 +397,12 @@
                 window.addEventListener('resize', onResize, false);
 
 
-                
+                var grid;
 
                 function createGrid(material, radius) {
-                var grid = new THREE.Group();
+                grid = new THREE.Group();
                 
-                // Create latitudes (horizontal lines)
+            
                 for (var lat=-80; lat<=80; lat+=10) {
                     var geometry = new THREE.BufferGeometry();
                     var vertices = [];
@@ -322,7 +419,7 @@
                     grid.add(line);
                 }
 
-                // Create longitudes (vertical lines)
+            
                 for (var lon=-180; lon<=180; lon+=10) {
                     var geometry = new THREE.BufferGeometry();
                     var vertices = [];
@@ -342,62 +439,115 @@
                 return grid;
             }
 
-            // Usage in your existing code:
-            var gridMaterial = new THREE.LineBasicMaterial({color: 0xffffff, transparent: true, opacity: 0.5}); // White color
-            var grid = createGrid(gridMaterial, 2.1); 
+            
 
-            // Rotate the grid by 90 degrees around the x-axis
-            grid.rotation.x = Math.PI / 2;
-
-            scene.add(grid);
+            
 
 
 
             function latLongToCartesian(lat, lon, radius) 
             {
-                // Convert latitude and longitude from degrees to radians
+              
                 var latRad = THREE.MathUtils.degToRad(lat);
                 var lonRad = THREE.MathUtils.degToRad(lon);
                 
-                // Calculate Cartesian coordinates
+              
                 var x = radius * Math.cos(latRad) * Math.cos(lonRad);
                 var y = radius * Math.cos(latRad) * Math.sin(lonRad);
                 var z = radius * Math.sin(latRad);
                 
                 return new THREE.Vector3(x, y, z);
             }
+            var ss;
+            function AddS(lat3,long3) {
 
+                var loaderObj = new OBJLoader();
+                var spaceship;
+
+                loaderObj.load('3DModels/Appolo.obj', function (obj) {
+                spaceship = obj;
+                spaceship.scale.set(0.002, 0.002, 0.002);  
+                
             
+               
+                var radius = 2.09;  
+                
+                var position = latLongToCartesian(lat3, long3, radius);
+                spaceship.position.set(position.x, position.y, position.z);  
+                
+               
+                var normalVector = position.clone().normalize();
+                var upVector = new THREE.Vector3(0, 1, 0); 
 
+                var rotationAxis = new THREE.Vector3();
+                rotationAxis.crossVectors(upVector, normalVector).normalize();
+                var rotationAngle = Math.acos(upVector.dot(normalVector));
+
+               
+                spaceship.rotateOnWorldAxis(rotationAxis, rotationAngle);
+
+                scene.add(spaceship);
+                
+                    
+
+            });
+         
+
+            }
+            
+            
 
 
             let rotationEnabled = false;
 
             function toggleRotation() {
-                rotationEnabled = !rotationEnabled; // Toggle rotation state
-                
-                if (rotationEnabled) {
-                    // Start rotation
-                    animateMoonRotation();
-                }
+                rotationEnabled = true;
+                vider_addquakes();
+                if(iconSprite != null)
+                scene.remove(iconSprite);
+                supprimerStations();
+                document.getElementById("appolo").src="design/off.png";
+                document.getElementById("information").style.display="none";
+                document.getElementById("information1").style.display="none";
+                animateMoonRotation();
             }
 
+            function toggleRotationpause() {
+                rotationEnabled = false;
+            }
 
-            
-            const toggleButton = document.getElementById('retate_button');
-            toggleButton.addEventListener('click', toggleRotation);
+            const startRotationButton = document.getElementById('retate_button');
+            startRotationButton.addEventListener('click', toggleRotation);
 
+            const pauseRotationButton = document.getElementById('retate_button_pause');
+            pauseRotationButton.addEventListener('click', toggleRotationpause);
+
+            var speed = 0;
             function animateMoonRotation() {
-                if (!rotationEnabled) {
-                    return; 
+                speed = 0.001;
+                
+                function animate() {
+                    if (!rotationEnabled) {
+                        return; 
+                    }
+                    
+                    moon.rotation.y += speed; 
+                    
+
+                    stations.forEach(function (station) {
+                        station.rotation.y += speed;
+                    });
+                    
+                    renderer.render(scene, camera); 
+                    
+                    requestAnimationFrame(animate);
                 }
-                const speed = 0.01; 
-                moon.rotation.y += speed; 
-                
-                renderer.render(scene, camera); 
-                
-                requestAnimationFrame(animateMoonRotation);
+
+                animate(); 
             }
+
+
+
 
 
             const reset_volume_control = document.getElementById('reset_volume_control');
@@ -412,34 +562,460 @@
             }
 
 
-            const loader = new THREE.TextureLoader();
-            const iconTexture = loader.load('images/pointeur-de-localisation.png');
-            const iconMaterial = new THREE.SpriteMaterial({ map: iconTexture });
-            const iconSprite = new THREE.Sprite(iconMaterial);
-            iconSprite.scale.set(0.4, 0.4, 1); // Adjust the size as needed
-
-            // Get Cartesian coordinates from latitude and longitude
-            const cartesianCoords = latLongToCartesian(0.67416, 23.473146, 2.1);
-
-            // Position the icon using the Cartesian coordinates
-            iconSprite.position.set(cartesianCoords.x, cartesianCoords.y, cartesianCoords.z);
-            scene.add(iconSprite);
-
-            // Sample CSV data (replace with your CSV data)
-const csvData = "";
-
-// Parse the CSV data into an array of objects
-const dataRows = csvData.split('\n');
-const data = dataRows.slice(1).map((row) => {
-  const [name, longitude, latitude] = row.split(',');
-  return {
-    name: name.trim(),
-    longitude: parseFloat(longitude),
-    latitude: parseFloat(latitude),
-  };
-});
+            
 
 
+
+                
+            
+            function latLongToCartesian(lat, lon, radius) {
+                
+                const latRad = THREE.MathUtils.degToRad(lat);
+                const lonRad = THREE.MathUtils.degToRad(lon);
+
+                
+                const x = radius * Math.cos(latRad) * Math.cos(lonRad);
+                const y = radius * Math.cos(latRad) * Math.sin(lonRad);
+                const z = radius * Math.sin(latRad);
+
+                return new THREE.Vector3(x, y, z);
+            }
+
+            
+            function createIconSprite(latitude, longitude) {
+                const loader = new THREE.TextureLoader();
+                const iconTexture = loader.load('/images/pointeur-de-localisation1.png');
+                const iconMaterial = new THREE.SpriteMaterial({ map: iconTexture });
+                const iconSprite = new THREE.Sprite(iconMaterial);
+                iconSprite.scale.set(0.1, 0.1, 1);
+
+               
+                const cartesianCoords = latLongToCartesian(latitude, longitude, 2.1);
+
+                
+                iconSprite.position.set(cartesianCoords.x, cartesianCoords.y, cartesianCoords.z);
+
+                return iconSprite;
+            }
+
+
+
+
+            
+
+            var iconSprite;
+
+            
+            function processCSVData(data) {
+                var yearin =  document.getElementById("year");
+                var dayin =  document.getElementById("day");
+                const parsedData = parseCSV(data);
+
+ 
+                
+                for (let i = 1; i < parsedData.length; i++) { 
+                    const record = parsedData[i];
+                    const lat = parseFloat(record[5]); 
+                    const lon = parseFloat(record[6]); 
+                    const year = parseFloat(record[0]);
+                    const day = parseFloat(record[1]);
+
+                    if(yearin.value==year && dayin.value==day)
+                    {
+                      
+                        iconSprite = createIconSprite(lat, lon);
+                        scene.add(iconSprite);
+                    }
+                    
+                    
+                }
+            }
+
+
+            function parseCSV(data) {
+                const rows = data.split('\n');
+                return rows.map(row => row.split(','));
+            }
+
+       
+            
+
+
+
+            const selectOptionsday = document.getElementById('day');
+            
+
+            selectOptionsday.addEventListener('change', function () {
+                speed = 0;
+                vider_addquakes();
+                if(iconSprite!=null) 
+                {
+                    scene.remove(iconSprite);
+                }
+                
+                fetch('csv/nakamura_1979_sm_locations.csv')
+                .then(response => response.text())
+                .then(data => {
+                    processCSVData(data);
+                })
+                .catch(error => console.error('Error fetching the CSV file:', error));
+            });
+
+
+
+    
+
+            const selectOptionsYear = document.getElementById('year');
+            selectOptionsYear.innerHTML = '';
+
+            const yearSet = new Set(); 
+            const csvFilePath = 'csv/nakamura_1979_sm_locations.csv';
+
+            fetch(csvFilePath)
+                .then(response => response.text())
+                .then(data => {
+                    const rows = data.split('\n');
+                    for (let i = 1; i < rows.length; i++) { 
+                        const cols = rows[i].split(',');
+                        const year = cols[0];
+                        yearSet.add(year);
+                    }
+                    
+                    yearSet.forEach(year => {
+                        const option = document.createElement('option');
+                        option.value = year;
+                        option.textContent = year;
+                        selectOptionsYear.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Erreur lors du chargement du fichier CSV :', error));
+
+
+
+
+
+
+
+
+
+        
+        selectOptionsYear.addEventListener('change', function () {
+            const selectedYear = selectOptionsYear.value;
+            selectOptionsday.innerHTML = '<option></option>'; 
+            fetch('csv/nakamura_1979_sm_locations.csv')
+                .then(response => response.text())
+                .then(data => {
+                    const rows = data.split('\n');
+                    for (let i = 1; i < rows.length; i++) { 
+                        const cols = rows[i].split(',');
+                        const year = cols[0];
+                        const day = cols[1];
+                        if (year === selectedYear) {
+                            const option = document.createElement('option');
+                            option.value = day;
+                            option.textContent = day;
+                            selectOptionsday.appendChild(option);
+                        }
+                    }
+                })
+                .catch(error => console.error('Erreur lors du chargement du fichier CSV :', error));
+        });
+
+            
+
+
+
+
+
+
+
+            const lat_log = document.getElementById('lat_log');
+            lat_log.addEventListener('click', lat_log_change);
+            var gridMaterial = new THREE.LineBasicMaterial({color: 0xffffff, transparent: true, opacity: 0.5}); // White color
+
+            function lat_log_change()
+            {   
+                if(grid == null)
+                {
+                    
+                    grid = createGrid(gridMaterial, 2.1);     
+                    grid.rotation.x = Math.PI / 2;
+                    scene.add(grid);
+                    lat_log.src="design/on.png";
+                    
+                }
+                else
+                {
+                    lat_log.src="design/off.png";
+                    scene.remove(grid);
+                    grid=null;
+                }
+                
+
+            }
+
+
+            const BackToHome = document.getElementById('BackToHome');
+            BackToHome.addEventListener('click', Back_To_Page_Home);
+
+            function Back_To_Page_Home()
+            {   
+                window.location.href = "/";
+            }
+
+            var stations = [];
+
+            var station_img = document.getElementById("station_img");
+            var station_text = document.getElementById("station_text");
+
+            function addStation(latitude, longitude, stationtext,stationimg) {
+                
+                var iconGeometry = new THREE.BoxGeometry(0.15, 0.15, 0.15);
+                var iconMaterial = new THREE.MeshBasicMaterial({
+                    color: 0xff0000,  
+                    transparent: true,
+                    opacity: 0.1
+                    
+                });
+                var icon = new THREE.Mesh(iconGeometry, iconMaterial);
+                
+                icon.name = "icon-1"; 
+                var position = latLongToCartesian(latitude, longitude, 2.2);
+                var spaceship= AddS(latitude,longitude);
+               
+
+                icon.position.set(position.x, position.y, position.z);;
+
+                icon.userData.stationtext = stationtext;
+                icon.userData.stationimg = stationimg;
+                scene.add(icon);
+
+            
+                stations.push(icon);
+            }
+            var quakes = [];
+            function addquakes(latitude, longitude, stationtext,stationimg,A, S12, S14, S15, S16, Stations, Year, Day, Magnitude) {
+                scene.remove(iconSprite);
+                var iconGeometry = new THREE.BoxGeometry(0.1, 0.1, 0.1);
+                var iconMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+                var icon = new THREE.Mesh(iconGeometry, iconMaterial);
+                
+                var position = latLongToCartesian(latitude, longitude, 2);
+                
+                icon.position.set(position.x, position.y, position.z);;
+
+                icon.userData.stationtext = stationtext;
+                icon.userData.stationimg = stationimg;
+                icon.userData.A = A;
+                icon.userData.S12 = S12;
+                icon.userData.S14 = S14;
+                icon.userData.S15 = S15;
+                icon.userData.S16 = S16;
+                icon.userData.Stations = Stations;
+                icon.userData.Year = Year;
+                icon.userData.Day = Day;
+                icon.userData.Magnitude = Magnitude;
+
+                scene.add(icon);
+                
+              
+                quakes.push(icon);
+            }
+            
+            const raycaster = new THREE.Raycaster();
+            const mouse = new THREE.Vector2();
+
+            renderer.domElement.addEventListener('click', onMouseClick);
+            
+
+
+
+
+            
+            function onMouseClick(event) {
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+    raycaster.setFromCamera(mouse, camera);
+
+    var intersects = raycaster.intersectObjects(stations);
+    var intersects2 = raycaster.intersectObjects(quakes);
+    if (intersects.length > 0) {
+        var clickedObject = intersects[0].object;
+        var userData = clickedObject.userData;
+
+        if (userData.stationtext !== undefined && userData.stationimg !== undefined) {
+          
+            var stationtext = userData.stationtext;
+            var stationimg = userData.stationimg;
+            document.getElementById('information').style.display = 'block';
+            document.getElementById('station_img').style.backgroundImage = "url("+stationimg+")";
+            document.getElementById('station_text').innerText = stationtext
+            
+        } else {
+            console.log("Spaceship Clicked");
+        }
+    }
+    if (intersects2.length > 0) {
+        var clickedObject = intersects2[0].object;
+        var userData = clickedObject.userData;
+
+        if (userData.stationtext !== undefined && userData.stationimg !== undefined) {
+                var A= userData.A;
+                var S12=userData.S12;
+                var S14=userData.S14;
+                var S15=userData.S15;
+                var S16=userData.S16;
+                var Stations=userData.Stations;
+                var Year=userData.Year;
+                var Day=userData.Day
+                var Magnitude=userData.Magnitude;
+
+                
+            var text = 
+                "A = "+ A + "<br>" +
+               "S12: " + S12 + "<br>" +
+               "S14: " + S14 + "<br>" +
+               "S15: " + S15 + "<br>" +
+               "S16: " + S16 + "<br>" +
+               "Stations: " + Stations + "<br>" +
+               "Year: " + Year + "<br>" +
+               "Day: " + Day + "<br>" +
+               "Magnitude: " + Magnitude;
+
+             document.getElementById('station_text').innerHTML = text;
+             document.getElementById('station_img').style.backgroundImage = "url("+userData.stationimg+")";
+           
+           
+            
+              document.getElementById('information').style.display = 'block';
+        } else {
+            console.log("Spaceship Clicked");
+        }
+    }
+
+ 
+
+}
+
+            const information = document.getElementById("information");
+
+            
+
+
+            function supprimerStations() {
+                stations.forEach(function (station) {
+                    scene.remove(station);
+                });
+                stations = [];
+            }
+
+            var etat_station= true;
+
+            
+            const appolo = document.getElementById('appolo');
+            appolo.addEventListener('click', afficher_appolo);
+
+            function afficher_appolo()
+            {   
+                if(speed != 0 ){
+                    speed = 0;
+                    etat_station = true;
+                }
+                if(etat_station)
+                {
+
+                    var s11 = "Apollo 11, in July 1969, marked the historic first human Moon landing. The lunar module 'Eagle' brought Neil Armstrong and Buzz Aldrin to the lunar surface while Michael Collins orbited in 'Columbia.' On July 20, 1969, Neil Armstrong took the first human steps on the Moon, famously saying, 'That's one small step for [a] man, one giant leap for mankind.' This mission achieved President John F. Kennedy's goal of lunar landing and safe return.";
+
+                    var s12 = "Apollo 12 was the sixth crewed mission in NASA's Apollo program and was launched in November 1969, just four months after Apollo 11. The mission aimed to perform a precise landing on the Moon's surface in the Ocean of Storms. The lunar module 'Intrepid' successfully landed astronauts Charles 'Pete' Conrad and Alan L. Bean on the Moon. Apollo 12 is known for its dramatic recovery from a lightning strike shortly after liftoff, which temporarily knocked out the spacecraft's electrical systems. Despite this, the mission successfully conducted lunar surface activities and experiments.";
+                    var s14 = `Apollo 14 was the eighth crewed mission in the Apollo program, launched in January 1971. The mission aimed to explore the lunar highlands near the Fra Mauro crater. Astronauts Alan B. Shepard and Edgar D. Mitchell landed on the Moon's surface in the lunar module "Antares." Shepard, the commander, famously hit golf balls on the lunar surface. Apollo 14 conducted scientific experiments, collected lunar samples, and demonstrated the ability to conduct precision landings.`;
+
+                    var s15 = `Apollo 15 was the ninth crewed mission in NASA's Apollo program and was launched in July 1971. It was the first mission to use the Lunar Roving Vehicle (LRV), which allowed astronauts to explore greater distances on the Moon's surface. The lunar module "Falcon" carried astronauts David R. Scott and James B. Irwin to the Moon, while Alfred M. Worden orbited above in the command module "Endeavour." The mission conducted extensive scientific experiments, including the collection of lunar samples from the Hadley-Apennine region.`;
+
+                    var s16 = `Apollo 16 was the tenth crewed mission in NASA's Apollo program, launched in April 1972. The mission aimed to explore the Descartes Highlands region of the Moon. Astronauts John W. Young and Charles M. Duke landed on the Moon's surface in the lunar module "Orion," while Thomas K. Mattingly orbited above in the command module "Casper." Apollo 16 conducted geological experiments, collected lunar samples, and deployed scientific instruments on the lunar surface.`;
+                    
+                    
+                    addStation(0.67416, 23.473146, s11,"/images/s11.webp"); 
+                    addStation(-3.01084, -23.42456, s12,"/images/s12.webp"); 
+                    addStation(-3.6445, -17.47753,s14,"/images/s14.webp");
+                    addStation(26.13407, 3.62981, s15,"/images/s15.webp"); 
+                    addStation(-8.97577, 15.49649, s16,"/images/s16.webp"); 
+                    appolo.src="design/on.png";
+                    etat_station=false;
+                }
+                else
+                {
+                    supprimerStations();
+                    appolo.src="design/off.png";
+                    document.getElementById('information').style.display = 'none'
+                    etat_station=true;
+                }
+            }
+
+            const moon_quakes = document.getElementById('moon_quakes');
+            const information1 = document.getElementById('information1');
+            moon_quakes.addEventListener('click', afficher_moon_quakes);
+
+            var etat_moon_quakes = false;
+
+            function afficher_moon_quakes()
+            {  
+                if(speed != 0 ){
+                    speed = 0;
+                    etat_moon_quakes = false;
+                }
+                if(etat_moon_quakes)
+                {
+                    etat_moon_quakes = false;
+                    information1.style.display="none";
+                    vider_addquakes();
+                }
+                else
+                {
+                    
+                    etat_moon_quakes = true;
+                    information1.style.display="block";             
+                    moon_quakes.src="design/on.png";
+                    fetch('/csv/updated_quake_summary.csv')
+                    .then(response => response.text())
+                    .then(data => {
+                        const rows = data.split('\n');
+                        for (let i = 1; i < rows.length; i++) 
+                        { 
+                            const cols = rows[i].split(',');
+                            const A = cols[0];
+                            const Latitude = cols[1];
+                            const Longitude = cols[2];
+                            const S12 = cols[3];
+                            const S14 = cols[4];
+                            const S15= cols[5];
+                            const S16 = cols[6];
+                            const Stations = cols[7];
+                            const Year = cols[8];
+                            const Day = cols[9];
+                            const Magnitude = cols[10];
+                            addquakes(Latitude, Longitude, 'this is station 1', '/images/info.png',A, S12, S14, S15, S16, Stations, Year, Day, Magnitude);
+ 
+                        }
+                    })
+                    .catch(error => console.error('Erreur lors du chargement du fichier CSV :', error));
+                    
+                }
+                
+
+            }
+
+
+            function vider_addquakes()
+            {
+                    moon_quakes.src="design/off.png";
+                    quakes.forEach(function (quake) {
+                    scene.remove(quake);
+                    });
+                    quakes = [];
+            }
+
+            
 
 
 
